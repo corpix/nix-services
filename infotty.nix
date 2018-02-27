@@ -33,7 +33,7 @@ in {
       description = "report system information to specified TTY";
       wantedBy = [ "multi-user.target" ];
       script = with pkgs; ''
-        export PATH=${makeBinPath [ systemd coreutils findutils eject openssh osquery ]}
+        export PATH=${makeBinPath [ systemd coreutils findutils eject openssh osquery nettools ]}
 
         while true
         do
