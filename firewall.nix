@@ -34,7 +34,7 @@ in {
               List of network interfaces to use with this rule.
             '';
           };
-        }
+        };
       });
     in {
       enable = mkEnableOption "High-level firewall helper service";
