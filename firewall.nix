@@ -44,8 +44,8 @@ in {
             names = mkOption {
               type = listOf str;
               default = [
-                "input"
-                "forward"
+                "INPUT"
+                "FORWARD"
               ];
               description = ''
                 List of chains to apply policy for.
@@ -54,7 +54,7 @@ in {
 
             policy = mkOption {
               type = nullOr str;
-              default = "drop";
+              default = "DROP";
               description = ''
                 Default policy for chains.
               '';
@@ -62,7 +62,7 @@ in {
           };
         });
         default = { };
-        example = { policy = "reject"; };
+        example = { policy = "REJECT"; };
         description = ''
           Firewall chains and policy for them.
         '';
@@ -87,7 +87,7 @@ in {
       };
 
       rejectSilently = mkOption {
-        type = listOf ruleCrtiteria;
+        type = listOf ruleCriteria;
         default = [];
         example = [ { ports = [ 22 ]; protocols = [ "tcp" ]; interfaces = [ "enp3s0" ]; } ];
         description = ''
