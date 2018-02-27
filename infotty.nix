@@ -40,6 +40,9 @@ in {
           # Clear sequence
           echo -e '\033\0143'
 
+          hostname --long
+          echo
+
           echo Network interface details:
           # Errors dev/null'ed because of this shit:
           # I0227 00:22:06.202585 16250 init.cpp:612] Cannot start extension manager: Extensions disabled
