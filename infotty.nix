@@ -19,7 +19,7 @@ in {
       };
       interval = mkOption {
         type = str;
-        default = "5s";
+        default = "60s";
         description = ''
           Pause between information updates.
         '';
@@ -28,14 +28,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.infotty = {
+    systemd.services.infotty = {
       enable = true;
-      description = "reports system information to specified TTY";
+      description = "report system information to specified TTY";
       wantedBy = [ "multi-user.target" ];
       script = with pkgs; ''
-        set -e
-
-        export PATH=${makeBinPath [ coreutils findutils eject openssh osquery ]}
+        export PATH=${makeBinPath [ systemd coreutils findutils eject openssh osquery ]}
 
         while true
         do
